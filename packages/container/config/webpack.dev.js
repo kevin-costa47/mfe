@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
-const ModuleFederationPLugin = require("webpack/lib/container/ModuleFederationPlugin")
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
-const packageJson = require('../package.json')
+const packageJson = require('../package.json');
 
 const devConfig = {
   mode: 'development',
@@ -12,15 +12,13 @@ const devConfig = {
     },
   },
   plugins: [
-    new ModuleFederationPLugin(
-      {
-        name:"container",
-        remotes:{
-          marketing:"marketing@http://localhost:8081/remoteEntry.js"
-        },
-        shared: packageJson.dependencies,
-      }
-    ),
+    new ModuleFederationPlugin({
+      name: 'container',
+      remotes: {
+        marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+      },
+      shared: packageJson.dependencies,
+    }),
   ],
 };
 
