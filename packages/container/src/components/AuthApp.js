@@ -7,6 +7,8 @@ export default ({ onSignIn }) => {
     const history = useHistory();
 
     useEffect(() => {
+        console.log("AuthApp")
+
         const { onParentNavigate } = mount(ref.current, {
             initialPath: history.location.pathname,
             onNavigate: ({ pathname: nextPathname }) => {
