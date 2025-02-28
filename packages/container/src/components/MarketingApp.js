@@ -16,6 +16,8 @@ export default () => {
         }
       }
     });
+    console.log("onParentNavigate Marketing", onParentNavigate)
+
     history.listen(onParentNavigate)
   }, []);
 

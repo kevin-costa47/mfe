@@ -17,6 +17,9 @@ export default ({ onSignIn }) => {
             },
             onSignIn
         });
+        console.log("onParentNavigate Auth", onParentNavigate)
+
+
         history.listen(onParentNavigate)
     }, []);
 
